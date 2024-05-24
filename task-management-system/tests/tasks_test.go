@@ -16,7 +16,7 @@ import (
 func SetUpRouter() *gin.Engine {
 	router := gin.Default()
 	router.POST("/tasks", handlers.CreateTask)
-	router.GET("/tasks/:id", handlers.ReadTask)
+	router.GET("/tasks/:id", handlers.GetTask)
 	router.PUT("/tasks/:id", handlers.UpdateTask)
 	router.DELETE("/tasks/:id", handlers.DeleteTask)
 	router.GET("/tasks", handlers.ListTasks)
@@ -25,7 +25,7 @@ func SetUpRouter() *gin.Engine {
 
 func TestCreateTask(t *testing.T) {
 	r := SetUpRouter()
-	task := models.Task{Title: "Test Task", Description: "This is a test task"}
+	task := models.Task{Title: "Test Task", Description: "Create test task"}
 	jsonValue, _ := json.Marshal(task)
 	req, _ := http.NewRequest("POST", "/tasks", bytes.NewBuffer(jsonValue))
 	w := httptest.NewRecorder()

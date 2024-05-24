@@ -36,11 +36,13 @@ Running and Testing the Application:
 
 To run the application:
 
+cd task-management-system
+
 go run main.go
 
 To run your tests:
 
-go test ./tests/...
+go test ./tests/
 
 
 Use curl to Test the API:
@@ -78,29 +80,27 @@ Example of Using Postman:
 
         json
 
-    {
-      "title": "Task 1",
-      "description": "This is task 1"
-    }
+        {
+        "title": "Task 1",
+        "description": "This is task 1"
+        }
 
 2. Read a Task:
-
-    Method: GET
-    URL: http://localhost:8080/tasks/1
+        Method: GET
+        URL: http://localhost:8080/tasks/1
 
 3. Update a Task:
+        Method: PUT
+        URL: http://localhost:8080/tasks/1
+        Headers: Content-Type: application/json
+        Body:
 
-    Method: PUT
-    URL: http://localhost:8080/tasks/1
-    Headers: Content-Type: application/json
-    Body:
-
-    json
+        json
 
         {
-          "title": "Updated Task 1",
-          "description": "Updated description",
-          "status": "In Progress"
+        "title": "Updated Task 1",
+        "description": "Updated description",
+        "status": "In Progress"
         }
 
 4. Delete a Task:
