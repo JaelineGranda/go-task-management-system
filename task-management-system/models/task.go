@@ -1,5 +1,6 @@
 package models
 
+// Task model with properties
 type Task struct {
 	ID          int    `json:"id"`
 	Title       string `json:"title"`
